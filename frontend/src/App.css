@@ -1,0 +1,234 @@
+/* ✅ FULL SCREEN DARK UI — AI FITNESS COACH */
+
+/* ✅ ROOT CENTERING */
+body {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ✅ MAIN APP CONTAINER */
+.app-container {
+  padding: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 40px;
+}
+
+/* ✅ HEADER */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  color: #ffcc00;
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+
+/* ✅ MAIN CARD */
+.card {
+  background: #252526;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  color: #f0f0f0;
+}
+
+/* ✅ FORM HEADING */
+.input-form-card h2 {
+  color: #00bcd4;
+  margin-top: 0;
+  border-bottom: 1px solid #3a3a3a;
+  padding-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* ✅ FORM LAYOUT */
+.form-group-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+/* ✅ INPUTS */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  background-color: #333;
+  color: #f0f0f0;
+  font-size: 17px;
+  box-sizing: border-box;
+}
+
+/* ✅ PRIMARY BUTTON */
+.button-primary {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 25px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: #e65c00;
+  transform: scale(1.03);
+}
+
+.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ✅ SECONDARY BUTTON */
+.button-secondary {
+  background-color: #00bcd4;
+  color: #252526;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 12px;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background-color: #00a4b4;
+}
+
+/* ✅ PLAN DISPLAY */
+.plan-container {
+  padding-top: 20px;
+}
+
+.section-card {
+  background: #252526;
+  padding: 22px;
+  border-left: 6px solid #ffcc00;
+  margin-top: 22px;
+  border-radius: 10px;
+}
+
+.day-card {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px dotted #444;
+}
+
+.day-card h4 {
+  color: #00bcd4;
+  margin: 6px 0;
+}
+
+/* ✅ CLICKABLE ITEMS */
+.clickable-item {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  list-style: none;
+  margin-left: -20px;
+}
+
+.clickable-item:hover {
+  background-color: #333;
+}
+
+/* ✅ MOTIVATION QUOTE */
+.motivation {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 25px 0;
+  color: #ffcc00;
+  font-weight: 500;
+}
+
+/* ✅ ERROR MESSAGE */
+.error-message {
+  color: #ff6600;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  padding: 12px;
+  background: #331100;
+  border-radius: 6px;
+}
+
+/* ✅ IMAGE MODAL */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #252526;
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+}
+
+.generated-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* ✅ MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .form-group-row {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .app-container {
+    padding: 20px;
+  }
+}
