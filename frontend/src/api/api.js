@@ -1,7 +1,8 @@
 // src/api/api.js
 import axios from 'axios';
 
-const API_BASE_URL = 'https://ai-ten-olive.vercel.app';
+const API_URL = "https://ai-5-cn4z.onrender.com";
+
 
 // --- 1. Plan Generation ---
 export const generateFitnessPlan = async (userData) => {

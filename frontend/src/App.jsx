@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// Make sure all these functions are present in your src/api/api.js file
 import { 
     generateFitnessPlan, 
     generateImage, 
     readPlanSection, 
-    exportPlanAsPdf // Added for PDF export
+    exportPlanAsPdf 
 } from './api/api'; 
 import './App.css'; 
 
@@ -14,22 +13,19 @@ function App() {
     const [error, setError] = useState(null);
     const [imageModal, setImageModal] = useState({ url: null, title: '' });
 
-    // --- FULL USER INPUT STATE ---
     const [userInput, setUserInput] = useState({
-        // Personal Details
+
         name: '',
         age: 30,
         gender: 'Male',
-        height: 175, // cm
-        weight: 70,  // kg
-        
-        // Fitness Configuration 
+        height: 175, 
+        weight: 70,  
+  
         goal: 'Muscle Gain',
         level: 'Intermediate',
         location: 'Gym',
         diet: 'Non-Veg',
-        
-        // Optional Details
+  
         medicalHistory: '',
         stressLevel: 'Low',
     });
@@ -42,9 +38,6 @@ function App() {
         });
     };
 
-    // -----------------------------------------------------------------
-    // --- 1. CORE PLAN GENERATION FUNCTION ---
-    // -----------------------------------------------------------------
     const handleGenerate = async () => {
         if (!userInput.name || !userInput.age || !userInput.weight) {
             setError("Please fill in Name, Age, and Weight.");
@@ -54,8 +47,7 @@ function App() {
         setLoading(true);
         setError(null);
         setPlan(null);
-        
-        // Data sent to the Backend (matching LLM prompt requirements)
+
         const dataToSend = {
             goal: userInput.goal, level: userInput.level, location: userInput.location,
             diet: userInput.diet, age: userInput.age, gender: userInput.gender, 
@@ -76,7 +68,7 @@ function App() {
             let errMsg = 'Could not generate plan. Check backend server and API keys.';
             
             if (e.response) {
-                // Axios received a response from the server (e.g., status 500)
+       
                 if (e.response.data && e.response.data.error) {
                     errMsg = `Server Error (${e.response.status}): ${e.response.data.error}`;
                 } else {
@@ -92,9 +84,6 @@ function App() {
         }
     };
     
-    // -----------------------------------------------------------------
-    // --- 2. IMAGE GENERATION FUNCTION (handleItemClick) ---
-    // -----------------------------------------------------------------
     const handleItemClick = async (itemName, isExercise) => {
         if (loading || imageModal.title) return;
         
@@ -108,9 +97,6 @@ function App() {
         }
     };
 
-    // -----------------------------------------------------------------
-    // --- 3. TTS VOICE FUNCTION (handleReadPlan) - FIX for ReferenceError ---
-    // -----------------------------------------------------------------
     const handleReadPlan = async (section) => {
         if (!plan) return;
         
@@ -138,9 +124,6 @@ function App() {
         }
     };
 
-    // -----------------------------------------------------------------
-    // --- 4. PDF EXPORT FUNCTION ---
-    // -----------------------------------------------------------------
     const handleExportPdf = async () => {
         if (!plan) return;
         try {
@@ -154,10 +137,6 @@ function App() {
         }
     };
 
-
-    // -----------------------------------------------------------------
-    // --- 5. RENDER FUNCTIONS ---
-    // -----------------------------------------------------------------
     const renderPlanDetails = (planData) => (
         <div className="plan-container">
             <div className="plan-controls">
