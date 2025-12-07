@@ -16,6 +16,7 @@ if (!process.env.GEMINI_API_KEY) {
     process.exit(1); 
 }
 
+
 // Initialize clients
 const ai = new GoogleGenAI({});
 const replicate = new Replicate({});
@@ -317,11 +318,10 @@ app.post('/api/export-pdf', async (req, res) => {
 
 
 // Start the server
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log("Server running on port " + PORT);
-  });
-}
+app.listen(PORT, () => {
+  console.log("✅ Server running on port " + PORT);
+});
+
 
 
 module.exports = app;
